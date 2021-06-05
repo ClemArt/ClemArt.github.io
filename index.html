@@ -2,16 +2,29 @@
 <html>
   <head>
     <title>Did Nico get his bike ?</title>
+    <style>
+      .answers {
+        width: 100%;
+        font-size: 100px;
+        text-align: center;
+        font-weight: 900;
+        font-family: 'Courier New', Courier, monospace;
+      }
+    </style>
   </head>
   <body>
+    <div class="answers">
+      <div id="answer-yes" hidden="true">YES</div>
+      <div id="answer-no" hidden="true">NOT YET</div>
+    </div>
     <div
       data-type="countdown"
-      data-id="2583704"
+      data-id="2583712"
       class="tickcounter"
       style="width: 100%; position: relative; padding-bottom: 25%"
     >
       <a
-        href="https://www.tickcounter.com/countdown/2583704/street-triple"
+        href="https://www.tickcounter.com/countdown/2583712/time-to-street-triple"
         title="Street triple"
         >Street triple</a
       ><a href="https://www.tickcounter.com/" title="Countdown">Countdown</a>
@@ -26,6 +39,23 @@
         js.src = 'https://www.tickcounter.com/static/js/loader.js';
         pjs.parentNode.insertBefore(js, pjs);
       })(document, 'script', 'tickcounter-sdk');
+    </script>
+    <script>
+      var timetostreettriple = new Date('2021-09-24T12:00:00+02:00');
+      function compute() {
+        var now = Date.now();
+        if (now < timetostreettriple) {
+          document.getElementById("answer-yes").hidden = true;
+          document.getElementById("answer-no").hidden = false;
+        } else {
+          document.getElementById("answer-no").hidden = true;
+          document.getElementById("answer-yes").hidden = false;
+        }
+      }
+      (function() {
+        compute();
+        setInterval(compute, 1000);
+      })()
     </script>
   </body>
 </html>
